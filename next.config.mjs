@@ -1,7 +1,13 @@
+// next.config.mjs
+const isProd = process.env.NODE_ENV === 'production';
+
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
-  reactStrictMode: true,
-  images: { domains: ['example.com'] }
+  output: 'export',
+  images: { unoptimized: true },
+  basePath: isProd ? '/landing-page-project' : '',
+  assetPrefix: isProd ? '/landing-page-project/' : '',
+  trailingSlash: true,
 };
 
 export default nextConfig;
